@@ -28,18 +28,10 @@ const router = require('express').Router()
   }
  */
 
-  // router.post('/register',  async (req, res, next) => {
-  //   try {
-  //     const { username, password } = req.body
-  //     const hash = bcrypt.hashSync(password, 8) 
-  //     const user = { username, password: hash }
-  //     const createdUser = await add(user)
+  router.post('/register',  async (req, res, next) => {
+    res.json('register')
   
-  //     res.status(200).json(createdUser)
-  //   } catch (err) {
-  //     next(err)
-  //   }
-  // })
+  })
 
 
 /**
@@ -58,6 +50,11 @@ const router = require('express').Router()
   }
  */
 
+  router.post('/login',  async (req, res, next) => {
+    res.json('register')
+  
+  })
+
 
 /**
   3 [GET] /api/auth/logout
@@ -74,7 +71,10 @@ const router = require('express').Router()
     "message": "no session"
   }
  */
-
+  router.get('/register',  async (req, res, next) => {
+    res.json('logout')
+  
+  })
  
 // Don't forget to add the router to the `exports` object so it can be required in other modules
 
