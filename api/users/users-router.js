@@ -2,16 +2,10 @@
 
 const router = require("express").Router();
 //const { restricted } = require('../auth/auth-middleware');
-//const Users = require("./users-model.js");
+const user = require("./users-model.js");
 const { restricted } = require('../auth/auth-middleware');
 
-router.get("/", restricted, (req, res, next) => {
-  Users.find()
-    .then(users => {
-      res.status(200).json(users);
-    })
-    .catch(next);
-});
+
 
 
 
@@ -38,7 +32,14 @@ router.get("/", restricted, (req, res, next) => {
     "message": "You shall not pass!"
   }
  */
-
+  router.get("/", restricted, async (req, res, next) => {
+    try {
+      const users = await user.find()
+      res.json(users)
+    }catch(err) {
+      next(err)
+    }
+  });
 
 // Don't forget to add the router to the `exports` object so it can be required in other modules
 
