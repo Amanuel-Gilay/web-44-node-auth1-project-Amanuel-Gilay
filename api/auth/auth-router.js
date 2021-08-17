@@ -1,5 +1,8 @@
 // Require `checkUsernameFree`, `checkUsernameExists` and `checkPasswordLength`
+const router = require('express').Router()
+//const bcrypt = require('bcryptjs')
 // middleware functions from `auth-middleware.js`. You will need them here!
+//const { add } = require('../server/users-modol');
 
 
 /**
@@ -24,6 +27,19 @@
     "message": "Password must be longer than 3 chars"
   }
  */
+
+  // router.post('/register',  async (req, res, next) => {
+  //   try {
+  //     const { username, password } = req.body
+  //     const hash = bcrypt.hashSync(password, 8) 
+  //     const user = { username, password: hash }
+  //     const createdUser = await add(user)
+  
+  //     res.status(200).json(createdUser)
+  //   } catch (err) {
+  //     next(err)
+  //   }
+  // })
 
 
 /**
@@ -61,3 +77,5 @@
 
  
 // Don't forget to add the router to the `exports` object so it can be required in other modules
+
+module.exports = router
